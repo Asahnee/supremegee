@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suprémèclévèrgéè Links</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* A nice dark gradient background */
+            background: linear-gradient(135deg, #1e1e2f 0%, #111119 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .link-btn {
+            width: 100%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.1); /* Glass effect */
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 16px;
+            margin: 10px 0;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Space between icon and text */
+        }
+
+        /* The Hover Effect you wanted */
+        .link-btn:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            border-color: #fff;
+        }
+
+        i {
+            font-size: 1.2rem;
+        }
+        .back-btn {
+            background: none;
+            border: 1px solid white;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .gallery-grid {
+    display: grid;
+    /* This creates two equal columns side-by-side */
+    grid-template-columns: repeat(2, 1fr); 
+    /* This adds space between the photos */
+    gap: 10px; 
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    /* This makes sure all photos have the same height */
+    height: 180px; 
+    object-fit: cover;
+    border-radius: 10px;
+}
+        /* Loading Screen Styles */
+#loader {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    border-top: 5px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.gallery-trigger {
+    background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%); /* Different color for the gallery button */
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+}
+    </style>
+</head>
+<body>
+
+    <div id="loader" style="display: none;">
+        <div class="spinner"></div>
+        <p>Loading Gallery...</p>
+    </div>
+
+    <div id="main-menu">
+        <img src="IMG_1439.JPG" class="profile-pic" alt="Suprémèclévèrgéè">
+        <h2>Suprémèclévèrgéè</h2>
+        
+        <a href="https://wa.me/+2349032890096" class="link-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://instagram.com/@superemegee" class="link-btn"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://tiktok.com/@supremecleverge" class="link-btn"><i class="fab fa-tiktok"></i> TikTok</a>
+        
+        <button class="link-btn gallery-trigger" onclick="startLoading()">
+            <i class="fas fa-images"></i> View My Photo Gallery
+        </button>
+    </div>
+
+    <div id="gallery-page" style="display: none;">
+        <button onclick="showMenu()" class="back-btn">← Back</button>
+        <h3>My Gallery</h3>
+        <div class="gallery-grid">
+            <img src="IMG_1439.JPG"> <img src="PYFE0631.JPG">
+            <img src="QEQI5095.JPG."><img src="PYCG8546.JPG">
+            <img src="IMG_3109.JPG."><img src="OHIW6318.JPG">
+        </div>
+    </div>
+
+    <script>
+        function startLoading() {
+            // 1. Hide the menu
+            document.getElementById('main-menu').style.display = 'none';
+            // 2. Show the loader
+            document.getElementById('loader').style.display = 'flex';
+            
+            // 3. Wait 1.5 seconds, then show gallery
+            setTimeout(() => {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('gallery-page').style.display = 'block';
+            }, 1500);
+        }
+
+        function showMenu() {
+            document.getElementById('gallery-page').style.display = 'none';
+            document.getElementById('main-menu').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
