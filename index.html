@@ -7,6 +7,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
+        /* This creates the shifting color animation */
+@keyframes shining {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.shining-name {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin: 20px 0;
+    /* This creates the rainbow gradient */
+    background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shining 5s ease infinite;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             /* A nice dark gradient background */
@@ -127,7 +148,7 @@
     </style>
 </head>
 <body>
-</div>
+  <h1 class="shining-name">Suprémèçlévèrġéè</h1>  
 </div>
     <div id="loader" style="display: none;">
         <div class="spinner"></div>
@@ -184,6 +205,7 @@
 </body>
 
 </html>
+
 
 
 
